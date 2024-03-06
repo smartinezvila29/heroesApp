@@ -1,5 +1,6 @@
 <h1>
-  Editar / Agregar
+  <mat-label *ngIf="!currentHero.id">Agregar</mat-label>
+  <mat-label *ngIf="currentHero.id">Editar</mat-label>
   heroe
 </h1>
 
@@ -70,8 +71,10 @@
         <button matButton
         color="warn"
         mat-flat-button
+        *ngIf="currentHero.id"
         >
         Borrar</button>
+        <span></span>
 
         <button matButton
         color="primary"
@@ -90,7 +93,7 @@
 
   <div class="col-12 sm:col-6">
     <mat-card>
-      <img src="" alt="imagen del heroe" matCardImage>
+      <img [src]=" currentHero | heroImage" alt="imagen del heroe" matCardImage>
     </mat-card>
   </div>
 </div>
